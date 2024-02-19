@@ -33,6 +33,9 @@ st.write(date)
 
 st.markdown("---")
 
+
+# Timer App With Progress Bar
+st.title("Timer App With Progress Bar...")
 def converter(value):
     m , s , mm = value.split(":")
     t_s = int(m) * 60 + int(s) + int(mm)/1000
