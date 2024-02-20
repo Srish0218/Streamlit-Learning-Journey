@@ -6,7 +6,6 @@ st.markdown("<h1 style ='text-align:center;'>Image Editor</h1>", unsafe_allow_ht
 st.markdown("---")
 
 image = st.file_uploader("Upload Your Image", type=["png", "jpg"])
-st.image(image)
 
 info = st.empty()
 size = st.empty()
@@ -14,6 +13,7 @@ mode = st.empty()
 img_format = st.empty()
 if image:
     img = Image.open(image)
+    st.image(img)  # Corrected line
     info.markdown("<h2 style ='text-align:center;'>Information</h2>", unsafe_allow_html=True)
     size.markdown(f"<h6> Size: {img.size}</h6>", unsafe_allow_html=True)
     mode.markdown(f"<h6> Mode: {img.mode}</h6>", unsafe_allow_html=True)
@@ -32,7 +32,7 @@ if image:
 
     s_btn = st.button("Submit")
     if s_btn:
-        edited = img.resize((width , height)).rotate(degree)
+        edited = img.resize((width, height)).rotate(degree)
         st.image(edited)
         filtered = edited
         if filter_img != "None":
@@ -45,5 +45,3 @@ if image:
             elif filter_img == "Smooth":
                 filtered = edited.filter(SMOOTH)
         st.image(filtered)
-
-
