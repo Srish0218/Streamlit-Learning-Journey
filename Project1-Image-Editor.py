@@ -13,7 +13,7 @@ mode = st.empty()
 img_format = st.empty()
 if image:
     img = Image.open(image)
-    st.image(img)  # Corrected line
+    st.image(img)
     info.markdown("<h2 style ='text-align:center;'>Information</h2>", unsafe_allow_html=True)
     size.markdown(f"<h6> Size: {img.size}</h6>", unsafe_allow_html=True)
     mode.markdown(f"<h6> Mode: {img.mode}</h6>", unsafe_allow_html=True)
